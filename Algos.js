@@ -47,23 +47,23 @@ function fizzBuzz(n){
 
 
 
-//   function maxProfit(stocks){
+  function maxProfit(stocks){
 
-//     let lowerNumber=stocks[0];
-//     let lowerNumberIndex;
+    let lowerNumber=stocks[0];
+    let lowerNumberIndex;
 
-//     stocks.map((stock,index)=>{
-//     stock<lowerNumber ? (lowerNumber = stock, lowerNumberIndex=index)  : null
-//    })
+    stocks.map((stock,index)=>{
+    stock<lowerNumber ? (lowerNumber = stock, lowerNumberIndex=index)  : null
+   })
 
-//    let highestNumber=stocks[lowerNumberIndex]
+   let highestNumber=stocks[lowerNumberIndex]
 
-//    for (i=lowerNumberIndex;i<stocks.length;i++){
-//     stocks[i]>highestNumber ? highestNumber = stocks[i] : null
-//    }
+   for (i=lowerNumberIndex;i<stocks.length;i++){
+    stocks[i]>highestNumber ? highestNumber = stocks[i] : null
+   }
 
-//    return highestNumber-lowerNumber
-// }
+   return highestNumber-lowerNumber
+}
 
 
 var stockPrices= [7,1,5,3,6,0]
@@ -89,48 +89,6 @@ function maxProfit(stocks) {
   
 
 
-  function arrayChunk(array,chunk){
-
-    let newArray=[]
-    let mergedArray=[]
-    let restArray=[]
-    let increment=1
-    let mergeIncrement=0
-    
-      for(i=0;i<array.length;i++){
-
-
-        if(increment!=chunk){
-            newArray.push(array[i])
-            increment++
-        }
-        else {
-            mergedArray[mergeIncrement]=newArray
-            newArray.push(array[i])
-            increment=1
-            newArray=[]
-            mergeIncrement++
-        }
-
-        if( i==array.length-1){
-            const rest=(array.length)-(chunk*mergeIncrement)
-            const reversedArray=array.reverse()
-            if(rest>0){
-
-                for(j=0;j<rest;j++){
-                    restArray.push(reversedArray[j])
-                }
-    
-                mergedArray[mergeIncrement]=restArray
-            }
-        }
-       
-
-      }
-
-        return mergedArray
-        
-  }
 
   function chunk(array,size){
     const chunked=[]
@@ -139,7 +97,6 @@ function maxProfit(stocks) {
 
     while(index<array.length){
         const chunk = array.slice(index,index+size)
-        console.log("chunk",chunk)
         chunked.push(chunk)
         index=index+size
     }
@@ -147,11 +104,33 @@ function maxProfit(stocks) {
     return chunked
   }
 
+  function twoSum(list,target){
+    for(i=0;i<list.length;i++){
+        for(j=0;j<list.length;j++){
+            if(list[i]!=list[j]){
+                console.log("TARGET",list[i]+list[j])
+                if(list[i]+list[j]==target){
+                    return `[${j},${i}]`
+                }
+
+            }
+        }
+    }
+  }
+
 
 
 let arrayChunkData=[
-    1, 2, 3, 4, 5, 6, 7, 8
+    2, 7, 11, 15
 ]
 
-console.log(chunk(arrayChunkData,3))
 
+
+console.log(twoSum(arrayChunkData,9))
+
+// 8, 7, 2, 5, 3, 1
+
+
+// 8 |  7, 2, 5, 3, 1
+
+// 7 / 8, 2, 5, 3, 1
