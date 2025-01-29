@@ -46,4 +46,52 @@ function fizzBuzz(n){
 }
 
 
-console.log(fizzBuzz(8))
+
+//   function maxProfit(stocks){
+
+//     let lowerNumber=stocks[0];
+//     let lowerNumberIndex;
+
+//     stocks.map((stock,index)=>{
+//     stock<lowerNumber ? (lowerNumber = stock, lowerNumberIndex=index)  : null
+//    })
+
+//    let highestNumber=stocks[lowerNumberIndex]
+
+//    for (i=lowerNumberIndex;i<stocks.length;i++){
+//     stocks[i]>highestNumber ? highestNumber = stocks[i] : null
+//    }
+
+//    return highestNumber-lowerNumber
+// }
+
+
+function maxProfit(stocks) {
+    if (stocks.length < 2) {
+      throw new Error("At least two stock prices are required to calculate profit.");
+    }
+  
+    let minPrice = stocks[0];
+    let maxProfit = 0;
+  
+    for (let i = 1; i < stocks.length; i++) {
+      const currentPrice = stocks[i];
+      const potentialProfit = currentPrice - minPrice;
+  
+      // Update maxProfit if the current potential profit is greater
+      maxProfit = Math.max(maxProfit, potentialProfit);
+  
+      // Update minPrice if the current price is lower
+      minPrice = Math.min(minPrice, currentPrice);
+    }
+  
+    return maxProfit;
+  }
+  
+
+
+
+var stockPrices= [7,1,5,3,6,0]
+
+// console.log(maxProfit(stockPrices))
+
