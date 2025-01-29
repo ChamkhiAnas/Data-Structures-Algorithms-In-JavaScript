@@ -66,32 +66,77 @@ function fizzBuzz(n){
 // }
 
 
+var stockPrices= [7,1,5,3,6,0]
+
+
 function maxProfit(stocks) {
-    if (stocks.length < 2) {
-      throw new Error("At least two stock prices are required to calculate profit.");
+    if(stocks.length<2){
+        throw new Error("At least two stock prices are required to calculate profit.");    
     }
-  
-    let minPrice = stocks[0];
-    let maxProfit = 0;
-  
-    for (let i = 1; i < stocks.length; i++) {
-      const currentPrice = stocks[i];
-      const potentialProfit = currentPrice - minPrice;
-  
-      // Update maxProfit if the current potential profit is greater
-      maxProfit = Math.max(maxProfit, potentialProfit);
-  
-      // Update minPrice if the current price is lower
-      minPrice = Math.min(minPrice, currentPrice);
+     
+    let minPrice=stocks[0]
+    let maxProfit=0
+
+    for(i=1;i<stocks.length;i++){
+        let currentPrice=stocks[i]
+        let potentianProfit=currentPrice-minPrice
+        minPrice=Math.min(minPrice,currentPrice)
+        maxProfit=Math.max(potentianProfit,maxProfit)
     }
-  
-    return maxProfit;
+    
+    return maxProfit
   }
   
 
 
+  function arrayChunk(array,chunk){
 
-var stockPrices= [7,1,5,3,6,0]
+    let newArray=[]
+    let mergedArray=[]
+    let restArray=[]
+    let increment=1
+    let mergeIncrement=0
+    
+      for(i=0;i<array.length;i++){
 
-// console.log(maxProfit(stockPrices))
+
+        if(increment!=chunk){
+            newArray.push(array[i])
+            increment++
+        }
+        else {
+            mergedArray[mergeIncrement]=newArray
+            newArray.push(array[i])
+            increment=1
+            newArray=[]
+            mergeIncrement++
+        }
+
+        if( i==array.length-1){
+            const rest=(array.length)-(chunk*mergeIncrement)
+            const reversedArray=array.reverse()
+            if(rest>0){
+
+                for(j=0;j<rest;j++){
+                    restArray.push(reversedArray[j])
+                }
+    
+                mergedArray[mergeIncrement]=restArray
+            }
+        }
+       
+
+      }
+
+        return mergedArray
+        
+  }
+
+
+
+let arrayChunkData=[
+    1, 2, 3, 4, 5, 6, 7, 8
+]
+
+console.log(arrayChunk(arrayChunkData,6))
 
