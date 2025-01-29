@@ -16,4 +16,16 @@ function ReverseInt(number){
 }
 
 
-console.log(ReverseInt(5678))
+function SentenceCapitalization(text){
+    const splitText= text.replace(/\s+/g, " ").toLowerCase().trim().split(' ')
+    const arrayText= splitText.map((item)=>{
+        return item[0].toUpperCase()+item.slice(1)
+    })
+
+    return arrayText.join(',').toString().replaceAll(',',' ');
+
+}
+
+
+
+console.log(SentenceCapitalization("subcomandante marocs "))
