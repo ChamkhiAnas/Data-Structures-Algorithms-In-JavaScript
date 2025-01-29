@@ -9,4 +9,11 @@ function CompareText(firstText){
     const firstTextReversed=ReverseText(firstText)
     return firstText==firstTextReversed ?  "isPalindrome" :  "NotPalindrome"
 }
-console.log(CompareText('radara'))
+
+
+function ReverseInt(number){
+    return parseInt(number.toString().split('').reverse().join(''))
+}
+
+
+console.log(ReverseInt(5678))
