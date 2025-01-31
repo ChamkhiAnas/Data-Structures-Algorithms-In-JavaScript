@@ -93,14 +93,11 @@ function maxProfit(stocks) {
   function chunk(array,size){
     const chunked=[]
     let index=0
-
-
     while(index<array.length){
         const chunk = array.slice(index,index+size)
         chunked.push(chunk)
         index=index+size
     }
-
     return chunked
   }
 
