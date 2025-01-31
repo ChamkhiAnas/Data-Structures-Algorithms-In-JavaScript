@@ -19,6 +19,24 @@ class LinkedList{
        }
        return increment
     }
+    clear(){
+        this.head=null
+    }
+
+    getLast(){
+        let current=this.head
+        let temp;
+        while(current){
+            temp=current
+            current=current.next
+        }
+
+        return temp
+    }
+
+    getFirst(){
+        return this.head
+    }
 
 }
 
@@ -41,4 +59,8 @@ node5.next=node6
 
 let list=new LinkedList(node1)
 
-console.log(list.size())
+    // console.log(list.size())
+
+    // console.log(list.clear())
+
+console.log(list.getFirst())
