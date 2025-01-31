@@ -38,9 +38,34 @@ class LinkedList{
         return this.head
     }
 
+    pop() {
+        if (!this.head) {
+            return null; // Empty list
+        }
+    
+        if (!this.head.next) {
+            const lastNode = this.head;
+            this.head = null; // Clear the list
+            return lastNode.head; // Return the data of the removed node
+        }
+    
+        let current = this.head;
+        let prev = null;
+    
+        // Traverse to the second-last node
+        while (current.next) {
+            prev = current;
+            current = current.next;
+        }
+    
+        prev.next = null; // Remove the last node
+        return current.head;   // Return the data of the removed node
+    }
+    
+
 }
 
-
+//10--20--30--40--50--60
 
 let node1=new NodeList(10)
 let node2=new NodeList(20)
@@ -57,10 +82,15 @@ node4.next=node5
 node5.next=node6
 
 
+let soloNode=new NodeList("aaaaaaaaa")
+
 let list=new LinkedList(node1)
+
+let list2=new LinkedList(soloNode)
+
 
     // console.log(list.size())
 
     // console.log(list.clear())
 
-console.log(list.getFirst())
+console.log(list.pop())
