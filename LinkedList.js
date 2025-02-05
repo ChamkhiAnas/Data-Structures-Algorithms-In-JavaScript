@@ -6,6 +6,7 @@ class NodeList{
 }
 
 class LinkedList{
+
     constructor(head=null){
         this.head=head
     }
@@ -19,6 +20,7 @@ class LinkedList{
        }
        return increment
     }
+
     clear(){
         this.head=null
     }
@@ -61,11 +63,31 @@ class LinkedList{
         prev.next = null; // Remove the last node
         return current.head;   // Return the data of the removed node
     }
-    
+    unshift(data){ 
+        let node=new NodeList(data)
+        let current=this.head
 
+        if(current!==null){
+            node.next=current
+        }
+
+        current=node
+
+        return node;
+    }
+    
 }
 
-//10--20--30--40--50--60
+// NodeList {
+//     head: 10,
+//     next: NodeList { head: 20, next: NodeList { head: 30, next: [NodeList] } }
+//   }
+  
+// 10-20-30-40-50
+
+
+// output : 
+// 99-10-20-30-40-50
 
 let node1=new NodeList(10)
 let node2=new NodeList(20)
@@ -74,7 +96,6 @@ let node4=new NodeList(40)
 let node5=new NodeList(50)
 let node6=new NodeList(50)
 
-
 node1.next=node2
 node2.next=node3
 node3.next=node4
@@ -82,15 +103,16 @@ node4.next=node5
 node5.next=node6
 
 
-let soloNode=new NodeList("aaaaaaaaa")
-
 let list=new LinkedList(node1)
 
-let list2=new LinkedList(soloNode)
+
+// console.log("Before unshifting",list)
+console.log("After unshifting",list.unshift(99))
 
 
-    // console.log(list.size())
 
-    // console.log(list.clear())
 
-console.log(list.pop())
+
+// console.log(list.size())
+// console.log(list.clear())
+
