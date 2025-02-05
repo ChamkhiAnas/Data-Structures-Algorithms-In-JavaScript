@@ -75,6 +75,23 @@ class LinkedList{
 
         return node;
     }
+
+    shift(){
+
+
+        if(this.head==null){
+            return null
+        }
+
+        let removedNode=this.head
+        this.head=this.head.next
+
+        return removedNode
+
+
+        
+        
+    }
     
 }
 
@@ -87,7 +104,7 @@ class LinkedList{
 
 
 // output : 
-// 99-10-20-30-40-50
+// 20-30-40-50
 
 let node1=new NodeList(10)
 let node2=new NodeList(20)
@@ -107,7 +124,7 @@ let list=new LinkedList(node1)
 
 
 // console.log("Before unshifting",list)
-console.log("After unshifting",list.unshift(99))
+console.log("After unshifting",list.shift())
 
 
 
