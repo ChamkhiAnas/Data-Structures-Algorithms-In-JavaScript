@@ -130,7 +130,7 @@ class LinkedList{
 
         let node=new NodeList(data)
 
-        
+
         if (index === 0) {
             node.next = this.head;
             this.head = node;
@@ -157,6 +157,14 @@ class LinkedList{
 
         return null
 
+
+    }
+
+    clear() {
+
+        this.head=null
+
+        return this.head
 
     }
 }
@@ -195,13 +203,13 @@ node5.next=node6
 
 let list=new LinkedList(node1)
 
-list.insertByindex(0,"*****")
+// list.insertByindex(0,"*****")
 
 // console.log("Get list by index ",)
 
+list.clear()
 
-
-console.log("list",list.head)
+console.log("list",list)
 
 
 // console.log(list.size())
