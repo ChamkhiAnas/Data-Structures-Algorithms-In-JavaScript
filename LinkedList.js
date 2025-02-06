@@ -105,7 +105,6 @@ class LinkedList{
     }
 
     setByIndex(index,value){
-
         if(this.head==null || index<0){
             return null
         }
@@ -118,18 +117,56 @@ class LinkedList{
             current=current.next
         }
 
-
         if(i==index){
             current.head=value
         }
-
-    
     }
 
+    insertByindex(index,data){
+
+        if(this.head==null || index<0){
+            return null 
+        }
+
+        let node=new NodeList(data)
+
+        
+        if (index === 0) {
+            node.next = this.head;
+            this.head = node;
+            return node;
+        }
 
 
-    
+        let i=0
+        let current=this.head 
+        let tempNode;
+
+        while(i<index-1 && current.next){
+            i++
+            current=current.next
+        }
+        
+
+        if(i==index-1 && current){
+        tempNode=current.next
+        node.next=tempNode
+        current.next=node
+        return current
+        }
+
+        return null
+
+
+    }
 }
+
+
+//create new element 
+// Find position 
+///Insert new node element in N-1 node next 
+//Insert into next of N element the next element N+1
+
 
 // NodeList {
 //     head: 10,
@@ -147,7 +184,7 @@ let node2=new NodeList(20)
 let node3=new NodeList(30)
 let node4=new NodeList(40)
 let node5=new NodeList(50)
-let node6=new NodeList(50)
+let node6=new NodeList(60)
 
 node1.next=node2
 node2.next=node3
@@ -158,14 +195,13 @@ node5.next=node6
 
 let list=new LinkedList(node1)
 
-list.setByIndex(2,"****")
+list.insertByindex(0,"*****")
 
-
-// console.log("Before unshifting",list)
-console.log("Get list by index ",list.head.next.next)
+// console.log("Get list by index ",)
 
 
 
+console.log("list",list.head)
 
 
 // console.log(list.size())
