@@ -91,7 +91,6 @@ class LinkedList{
     }
 
     getByIndex(index){
-
         if(this.head==null || index<0){
             return null
         }
@@ -103,8 +102,32 @@ class LinkedList{
         }
 
         return current;
-
     }
+
+    setByIndex(index,value){
+
+        if(this.head==null || index<0){
+            return null
+        }
+
+        let i=0
+        let current=this.head 
+
+        while(i<index && current.next){
+            i++
+            current=current.next
+        }
+
+
+        if(i==index){
+            current.head=value
+        }
+
+    
+    }
+
+
+
     
 }
 
@@ -135,11 +158,11 @@ node5.next=node6
 
 let list=new LinkedList(node1)
 
-
+list.setByIndex(2,"****")
 
 
 // console.log("Before unshifting",list)
-console.log("Get list by index ",list.getByIndex(6))
+console.log("Get list by index ",list.head.next.next)
 
 
 
